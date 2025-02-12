@@ -50,3 +50,4 @@ else:
     print("Ma hakkan plaanid")
 # _______________________________________________________________
 # b) Lisa valiku, kus Juku vanuse alusel otsustate mis pilet talle vaja osta. (Tee kontroll, kas sisestatud arv on täisarv)
+saddh
