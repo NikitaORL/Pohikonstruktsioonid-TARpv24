@@ -88,14 +88,14 @@
 # except:
 #     print("viga")
 
-try:
-    aeg_min = int(input("Palun sisestage aeg minutites: "))
-    if aeg_min>0:
-        aeg_min/60 
-        aeg_min%
-    else:
+# try:
+#     aeg_min = int(input("Palun sisestage aeg minutites: "))
+#     if aeg_min>0:
+#         aeg_min/60 
+#         aeg_min%
+#     else:
 
-except:
+# except:
 
     
 
