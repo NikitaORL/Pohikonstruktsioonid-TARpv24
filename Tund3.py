@@ -83,4 +83,4 @@
 #     print("Saabub kokkuvõte...")
 #     print("See on soovitav toasoojus talvel")
 # else:
-#     print("something went wrong!")
+#     print("something went wrong!")dfsagg
