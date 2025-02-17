@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Tund3.py</StartupFile>
+    <StartupFile>Tund4_Index.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,8 +22,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Lihtsad programimd.py" />
+    <Compile Include="..\Keha indeks.py">
+      <Link>Keha indeks.py</Link>
+    </Compile>
     <Compile Include="Pohikonstruktsioonid_TARpv24.py" />
     <Compile Include="Tund3.py" />
+    <Compile Include="Tund4_Index.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
