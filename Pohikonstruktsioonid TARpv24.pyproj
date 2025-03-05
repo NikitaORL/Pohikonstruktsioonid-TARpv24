@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Plokkskeemide_koostamine.py</StartupFile>
+    <StartupFile>Kontrolltöö.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,7 @@
     <Compile Include="..\Keha indeks.py">
       <Link>Keha indeks.py</Link>
     </Compile>
+    <Compile Include="Kontrolltöö.py" />
     <Compile Include="Plokkskeemide_koostamine.py" />
     <Compile Include="Vigade.otsing2.py" />
     <Compile Include="Pohikonstruktsioonid_TARpv24.py" />
