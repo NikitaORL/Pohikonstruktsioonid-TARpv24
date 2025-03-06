@@ -45,32 +45,49 @@ while True:
         print("Palun sisesta kehtiv number!")
 -----------------------------------------------------------------------------------
 import random
-Poisii=0
+
+Poisii = 0
 print("Üks tuba mahutab 3 inimest")
 print("Kas poisid ja tüdrukud tuleks paigutada koos või eraldi?")
-KasutajaAns=int(input("Koos - 1, eraldi - 2: "))
 
-if KasutajaAns==1:
-    Inimesed=random.randrange(10, 40, 10)
-    print(f"Klassis on {Inimesed} imimesed")
-    TüdProts=random.randrange(10, 80, 10)
-    print(f"Tüdrukute osakaal on {TüdProts}% ")
-    ruumid=Inimesed*(TüdProts/100)
-    print(f"{Inimesed} sportlase majutamiseks on vaja broneerida {ruumid} tuba")
+while True:
+    try:
+        KasutajaAns = int(input("Koos - 1, eraldi - 2: "))
+        
+        if KasutajaAns == 1:
+            Inimesed = random.randrange(10, 40, 10)
+            print(f"Klassis on {Inimesed} inimest")
+            TüdProts = random.randrange(10, 80, 10)
+            print(f"Tüdrukute osakaal on {TüdProts}% ")
+            
+            ruumid = Inimesed / 3
+            ruumid = int(ruumid) if Inimesed % 3 == 0 else int(ruumid) + 1
+            print(f"Sportlaste majutamiseks on vaja broneerida {ruumid} tuba")
+            break  
+        
+        elif KasutajaAns == 2:
+            Inimesed = random.randrange(10, 40, 10)
+            print(f"Klassis on {Inimesed} inimest")
+            TüdProts = random.randrange(10, 80, 10)
+            print(f"Tüdrukute osakaal on {TüdProts}% ")
 
-elif KasutajaAns==2:
-    Inimesed=random.randrange(10, 40, 10)
-    print(f"Klassis on {Inimesed} imimesed")
-    TüdProts=random.randrange(10, 80, 10)
-    print(f"Tüdrukute osakaal on {TüdProts}% ")
-    tüdrukud=Inimesed*(TüdProts/100)
-    poisid = Inimesed - tüdrukud
-    print(f"Klassis on {poisid} poisid ja {tüdrukud} tüdrukud")
-    ruumid_tüdrukud = tüdrukud / 3
-    ruumid_poisid = poisid / 3
+         
+            tüdrukud = Inimesed * (TüdProts / 100)
+            poisid = Inimesed - tüdrukud
+            print(f"Klassis on {poisid} poisid ja {tüdrukud} tüdrukud")
 
-    ruumid_tüdrukud = int(ruumid_tüdrukud) if tüdrukud % 3 == 0 else int(ruumid_tüdrukud) + 1 #Vaatasin Chat GPT
-    ruumid_poisid = int(ruumid_poisid) if poisid % 3 == 0 else int(ruumid_poisid) + 1 #Vaatasin Chat GPT
+            ruumid_tüdrukud = tüdrukud / 3
+            ruumid_poisid = poisid / 3
 
-    print(f"Tüdrukute jaoks on vaja broneerida {ruumid_tüdrukud} tuba.")
-    print(f"Poiste jaoks on vaja broneerida {ruumid_poisid} tuba.")
+            ruumid_tüdrukud = int(ruumid_tüdrukud) if tüdrukud % 3 == 0 else int(ruumid_tüdrukud) + 1 #Kasurasin ChatGPT
+            ruumid_poisid = int(ruumid_poisid) if poisid % 3 == 0 else int(ruumid_poisid) + 1 #GPT
+
+            print(f"Tüdrukute jaoks on vaja broneerida {ruumid_tüdrukud} tuba.")
+            print(f"Poiste jaoks on vaja broneerida {ruumid_poisid} tuba.")
+            break  
+        
+        else:
+            print("Palun siseta ainult 1 või 2")
+    
+    except ValueError:
+        print("Sisestasite vale väärtuse. Palun sisestage number 1 või 2.")
