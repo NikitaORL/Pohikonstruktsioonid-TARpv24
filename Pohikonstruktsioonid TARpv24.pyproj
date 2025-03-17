@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Kontrolltöö.py</StartupFile>
+    <StartupFile>Kivi-paber-käärid.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Kivi-paber-käärid.py" />
     <Compile Include="Lihtsad programimd.py" />
     <Compile Include="..\Keha indeks.py">
       <Link>Keha indeks.py</Link>
