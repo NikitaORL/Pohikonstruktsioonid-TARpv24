@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Kivi-paber-käärid.py</StartupFile>
+    <StartupFile>tund_def.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,6 +27,7 @@
       <Link>Keha indeks.py</Link>
     </Compile>
     <Compile Include="Kontrolltöö.py" />
+    <Compile Include="tund_def.py" />
     <Compile Include="блоксхемы.py" />
     <Compile Include="Plokkskeemide_koostamine.py" />
     <Compile Include="Vigade.otsing2.py" />
