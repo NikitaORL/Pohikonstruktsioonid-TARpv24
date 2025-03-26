@@ -1,4 +1,4 @@
-import MyModule777
+from MyModule777 import * 
 
 
 usernames = []

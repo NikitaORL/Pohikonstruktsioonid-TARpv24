@@ -1,9 +1,10 @@
-import  MyModule_ArvestusTöö 
+import MyModule_ArvestusTöö
 import random
 opilased = []
 puudumised = []
+vzatka = []
 
-def main():
+def generate():
     syllables = ["Ива", "Пет", "Сид", "Куз", "Смир", "Вас", "Поп", "Мих", "Нов", "Фед"]
     endings = ["нов", "ров", "кин", "ский", "чев", "ов", "ев", "ков"]
     return random.choice(syllables) + random.choice(endings)
@@ -17,12 +18,14 @@ print("\n")
 
 for i in range(õpilaste_arv):
     puuudumised = random.randint(0, 150)
-    opilased.append(main())
+    opilased.append(generate())
     puudumised.append(puuudumised)
-
 print("Список учеников и их прогулов:")
 for i in range(õpilaste_arv):
     print(f"{opilased[i]} - Прогулы: {puudumised[i]}")
+
+    students_sorted = sorted(zip(opilased, puudumised), key=lambda x: x[1])
+
 
 while True:
     print("\n\n\n")
@@ -40,4 +43,15 @@ while True:
         continue
 
     if choice == 1:
-        MyModule_ArvestusTöö.top5(opilased, puudumised)
+        MyModule_ArvestusTöö.top(opilased, puudumised)
+    elif choice == 2:
+        MyModule_ArvestusTöö.sort_students(opilased, puudumised)
+    elif choice == 3:
+        MyModule_ArvestusTöö.commission(opilased, puudumised)
+    elif choice == 4:
+        MyModule_ArvestusTöö.remove_students(opilased, puudumised)
+    elif choice == 5:
+        MyModule_ArvestusTöö.vzatka(opilased, puudumised)
+    elif choice == 6:
+        print("До свидания!")
+        break
