@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Registreerimine_ja_autoriseerimine.py</StartupFile>
+    <StartupFile>VigadeOtsing.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -32,6 +32,7 @@
     <Compile Include="MyModule_ArvestusTöö.py" />
     <Compile Include="Registreerimine_ja_autoriseerimine.py" />
     <Compile Include="tund_def.py" />
+    <Compile Include="VigadeOtsing.py" />
     <Compile Include="блоксхемы.py" />
     <Compile Include="Plokkskeemide_koostamine.py" />
     <Compile Include="Vigade.otsing2.py" />
