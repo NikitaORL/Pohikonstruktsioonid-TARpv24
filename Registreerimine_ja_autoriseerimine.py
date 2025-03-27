@@ -1,11 +1,11 @@
-from MyModule777 import * 
+import MyModule777
 
 
 usernames = []
 passwords = []
 
-def main():
-    while True:
+
+while True:
         print("Добро пожаловать в программу!")
         print("Пожалуйста войдите или зарегистрируйтесь")
         print("1 - войти")
@@ -17,7 +17,7 @@ def main():
         try:
             choice = int(input("Выберите пункт: "))
         except ValueError:
-            print("Ошибка! Введите число.")
+            print("Ошибка! Введите число")
             continue
         
         if choice == 1:
@@ -29,10 +29,8 @@ def main():
         elif choice == 4:
             MyModule777.recover_password()
         elif choice == 5:
-            print("Выход из программы.")
+            print("До свидания!")
             break  
         else:
-            print("Неверный выбор, попробуйте снова.")
+            print("Неверный выбор, попробуйте снова")
 
-if __name__ == "__main__":
-    main()

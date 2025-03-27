@@ -1,5 +1,4 @@
-import math
-import string
+
 from os import system
 import random
 
@@ -23,13 +22,13 @@ def register():
     elif gen == "2":
         password = input("Введите пароль для регистрации: ")
     else:
-        print("Некорректный ввод, попробуйте снова.")
+        print("Некорректный ввод, попробуйте снова")
         return
 
     username = input("Введите логин для регистрации: ")  
 
     if username in usernames:
-        print("Этот логин уже занят.")
+        print("Этот логин уже занят")
         return  
 
     usernames.append(username)
@@ -44,11 +43,11 @@ def change_password():
         if passwords[usernames.index(username)] == old_password:
             new_password = input("Введите новый пароль: ")
             passwords[usernames.index(username)] = new_password
-            print("Пароль успешно изменен.")
+            print("Пароль успешно изменен")
         else:
-            print("Неверный старый пароль.")
+            print("Неверный старый пароль")
     else:
-        print("Пользователь не найден.")
+        print("Пользователь не найден")
         system('cls')
 
 def recover_password():
@@ -56,5 +55,16 @@ def recover_password():
     if username in usernames:
         print(f"Ваш пароль: {passwords[usernames.index(username)]}")
     else:
-        print("Пользователь не найден.")
+        print("Пользователь не найден")
         system('cls')
+
+def login():
+    username = input("Введите логин: ")
+    if username in usernames:
+        password = input("Введите пароль: ")
+        if passwords[usernames.index(username)] == password:
+            print(f"Добро пожаловать, {username}!")
+        else:
+            print("Неверный пароль")
+    else:
+        print("Пользователь не найден")
