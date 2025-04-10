@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Praktiline_töö_Palgad1.py</StartupFile>
+    <StartupFile>Praktiline_töö_6_1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -29,8 +29,10 @@
     </Compile>
     <Compile Include="Kontrolltöö.py" />
     <Compile Include="MyModule777.py" />
+    <Compile Include="MyModule_6_1.py" />
     <Compile Include="MyModule_ArvestusTöö.py" />
     <Compile Include="MyModule_Palgad.py" />
+    <Compile Include="Praktiline_töö_6_1.py" />
     <Compile Include="Praktiline_töö_Palgad1.py" />
     <Compile Include="Registreerimine_ja_autoriseerimine.py" />
     <Compile Include="Sõneja_järjesti_funktsioonid.py" />
