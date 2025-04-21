@@ -44,3 +44,14 @@ if andmed.get("cod") != "404" and "main" in andmed and "weather" in andmed:
     print(f"Tuule kiirus: {tuul} m/s")
 else:
     print("Linna ei leitud. Palun kontrolli nime õigekirja.")
+
+andmed = vastus.json()
+
+sisestatud_nimi = input("Sisesta oma nimi: ")
+
+if andmed.get("nimi") == sisestatud_nimi:
+    print(f"\nAutod kasutajal {sisestatud_nimi}")
+    for auto in andmed.get("autod", []):
+        print(f"{auto['mark']} {auto['varv']} {auto['joud']} hj), number: {auto['number']}")
+else:
+    print("Viga")

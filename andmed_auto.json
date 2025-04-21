@@ -1,0 +1,21 @@
+{
+  "nimi": "Anna",
+  "vanus": 55,
+  "abielus": true,
+  "lapsed": [ "Inna", "Mati" ],
+  "kooduloomad": null,
+  "autod": [
+    {
+      "muudel": "BMW",
+      "varv": "must",
+      "aasta": 2020,
+      "number": "777AYE"
+    },
+    {
+      "muudel": "Audi",
+      "varv": "punane",
+      "aasta": 2019,
+      "number": "777ORL"
+    }
+  ]
+}

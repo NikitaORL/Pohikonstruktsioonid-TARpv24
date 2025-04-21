@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Pohikonstruktsioonid TARpv24", "Pohikonstruktsioonid TARpv24.pyproj", "{FBE747EC-5346-4DE8-9377-054F35D65EB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F479DD07-9CDC-4A2D-9952-CDCAD7E90227}"
+	ProjectSection(SolutionItems) = preProject
+		andmed_auto.json = andmed_auto.json
+		kusimused_answers.txt = kusimused_answers.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
