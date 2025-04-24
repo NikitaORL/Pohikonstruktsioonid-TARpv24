@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Küsimustik_7_3.py</StartupFile>
+    <StartupFile>Teema7\Ulesanne7_3\Küsimustik_7_3.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Küsimustik_7_3.py" />
+    <Compile Include="Teema7\Ulesanne7_3\Küsimustik_7_3.py" />
     <Compile Include="Teema7\7_2.py" />
     <Compile Include="Arvestus_töö.py" />
     <Compile Include="Kivi-paber-käärid.py" />
@@ -53,8 +53,13 @@
     <Content Include="Teema7\klass.json" />
     <Content Include="OIP.jpg" />
     <Content Include="Teema7\andmed_auto.json" />
+    <Content Include="Teema7\Ulesanne7_3\kusimused_ja_vastused.txt" />
+    <Content Include="Teema7\Ulesanne7_3\oiged_vastused.txt" />
+    <Content Include="Teema7\Ulesanne7_3\koik_inimised.txt" />
+    <Content Include="Teema7\Ulesanne7_3\Vale_vastused.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Teema7\Ulesanne7_3\" />
     <Folder Include="Teema7\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

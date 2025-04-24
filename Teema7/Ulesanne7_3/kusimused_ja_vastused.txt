@@ -1,0 +1,3 @@
+Mitu päeva on nädalas?:7
+Mitu päeva on aastas?:365
+Mis aastal oli 2009?:2009kirjutada 777: 777:777
