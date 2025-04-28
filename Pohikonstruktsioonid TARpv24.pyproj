@@ -21,6 +21,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Teema7\Ulesanne7_3\MyModule_küsimustik.py" />
+    <Compile Include="Teema8\Diagrammide.py" />
     <Compile Include="Teema7\Ulesanne7_3\Küsimustik_7_3.py" />
     <Compile Include="Teema7\7_2.py" />
     <Compile Include="Arvestus_töö.py" />
@@ -39,6 +41,7 @@
     <Compile Include="Registreerimine_ja_autoriseerimine.py" />
     <Compile Include="Sõneja_järjesti_funktsioonid.py" />
     <Compile Include="Teema7\Teema7_3_JSON.py" />
+    <Compile Include="Teema8\Teema_8_1.py" />
     <Compile Include="tund_def.py" />
     <Compile Include="VigadeOtsing.py" />
     <Compile Include="блоксхемы.py" />
@@ -59,6 +62,7 @@
     <Content Include="Teema7\Ulesanne7_3\Vale_vastused.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Teema8\" />
     <Folder Include="Teema7\Ulesanne7_3\" />
     <Folder Include="Teema7\" />
   </ItemGroup>
