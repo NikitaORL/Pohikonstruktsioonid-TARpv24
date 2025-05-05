@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Teema7\Ulesanne7_3\Küsimustik_7_3.py</StartupFile>
+    <StartupFile>Teema8\Teema8_3.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -42,6 +42,8 @@
     <Compile Include="Sõneja_järjesti_funktsioonid.py" />
     <Compile Include="Teema7\Teema7_3_JSON.py" />
     <Compile Include="Teema8\Teema_8_1.py" />
+    <Compile Include="Teema8\Teema_8_TK.py" />
+    <Compile Include="Teema8\Teema8_3.py" />
     <Compile Include="tund_def.py" />
     <Compile Include="VigadeOtsing.py" />
     <Compile Include="блоксхемы.py" />
@@ -60,6 +62,7 @@
     <Content Include="Teema7\Ulesanne7_3\oiged_vastused.txt" />
     <Content Include="Teema7\Ulesanne7_3\koik_inimised.txt" />
     <Content Include="Teema7\Ulesanne7_3\Vale_vastused.txt" />
+    <Content Include="Teema8\meme.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Teema8\" />
