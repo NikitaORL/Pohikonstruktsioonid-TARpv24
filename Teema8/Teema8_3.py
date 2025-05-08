@@ -1,6 +1,8 @@
 from tkinter import *
 import math
-
+from turtle import color
+import matplotlib.pyplot as plt
+import numpy as np
 
 def leia_juured():
     a_val = sisestus.get().strip()
@@ -51,7 +53,37 @@ def leia_juured():
 
 
 
+def joonista():
+    a_val = sisestus.get().strip()
+    b_val = sisestus2.get().strip()
+    c_val = sisestus3.get().strip()
 
+    if not a_val or not b_val or not c_val:
+        pealkiri2.config(text=" Заполните все поля для графика!")
+        return
+
+    try:
+        a = float(a_val)
+        b = float(b_val)
+        c = float(c_val)
+
+        # Генерация значений x и y для графика
+        x = np.linspace(-10, 10, 400)
+        y = a*x**2 + b*x + c
+
+        plt.figure(figsize=(6, 4))
+        plt.plot(x, y, label=f'{a}x² + {b}x + {c}')
+        plt.axhline(0, color='black',linewidth=1)
+        plt.axvline(0, color='black',linewidth=1)
+        plt.title(f'График функции: {a}x² + {b}x + {c}')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+
+    except ValueError:
+        pealkiri2.config(text="Введите корректные числа для графика!")
 
 
 
@@ -81,7 +113,7 @@ sisestus3=Entry(aken, bg="lightblue", font=("Arial", 30), fg="black", width=3)
 sisestus.insert(0, "")
 #Кнопка
 nupp = Button(aken, text="Решение", bg="green", font=("Arial", 25), fg="black", relief=RAISED, command=leia_juured)
-
+nupp_2 = Button(aken, text="График", bg="green", font=("Arial", 25), fg="black", relief=RAISED, command=joonista)
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -97,6 +129,8 @@ sisestus2.place(x=175, y=100)
 sisestus3.place(x=300, y=100)
 
 nupp.place(x=425, y=90)
+nupp_2.place(x=600, y=90)
+
 #-----------------------------------------------------------------------------------------------------
 # Это короче запуск
 aken.mainloop()
