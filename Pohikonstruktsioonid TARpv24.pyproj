@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Teema8\Teema8_3.py</StartupFile>
+    <StartupFile>8_4_Eposti.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="8_4_Eposti.py" />
     <Compile Include="Teema7\Ulesanne7_3\MyModule_küsimustik.py" />
     <Compile Include="Teema8\Diagrammide.py" />
     <Compile Include="Teema7\Ulesanne7_3\Küsimustik_7_3.py" />
