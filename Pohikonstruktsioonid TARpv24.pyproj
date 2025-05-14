@@ -56,7 +56,10 @@
     <Compile Include="Tund4_Index.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="clash2.jpg" />
+    <Content Include="clash3.png" />
     <Content Include="kazino-s.jpg" />
+    <Content Include="Project\clash.png" />
     <Content Include="Project\usernames2.txt" />
     <Content Include="Teema7\andmed.json" />
     <Content Include="Teema7\klass.json" />
