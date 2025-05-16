@@ -2,8 +2,9 @@ from tkinter import *
 from PIL import Image, ImageTk  
 from tkinter import messagebox
 import random
+import sys
 
-def game():
+def game(username):
     game = Toplevel(LogiSisse)
     game.title("GAME")       
     game.geometry("700x550")        
@@ -19,7 +20,7 @@ def game():
         canvas2.create_image(0, 0, anchor=NW, image=photo2)
         canvas2.image = photo2
     except Exception as e:
-        messagebox.showerror("Ошибка", f"Не удалось загрузить фон:\n{str(e)}")
+        messagebox.showerror("Ошибка", "Не удалось загрузить фон")
         return
 
     player_cards = []
@@ -40,10 +41,17 @@ def game():
 
     def update_status():
         player_score = get_score(player_cards)
+        dealer_score = get_score(dealer_cards) if dealer_cards else 0
         cards_label.config(text=f"Ваши карты: {player_cards} | Очки: {player_score}")
+        dealer_label.config(text=f"Карты дилера: {dealer_cards} | Очки: {dealer_score}")
 
     def update_balance_display():
         balance_var.set(f"Баланс: {balance} €")
+
+    def save_result(result):
+        score = get_score(player_cards)
+        with open("Project//tulemused_2.txt", "a", encoding="utf-8") as f:
+            f.write(f"{username} - {result} Очки: {score}\n")
 
     def start_game():
         nonlocal balance
@@ -71,11 +79,17 @@ def game():
         update_status()
         result_label.config(text="")
 
+        hit_button.config(state=NORMAL)
+        stand_button.config(state=NORMAL)
+
     def hit():
         player_cards.append(draw_card())
         update_status()
         if get_score(player_cards) > 21:
             result_label.config(text="Вы проиграли!", fg="red")
+            hit_button.config(state=DISABLED)
+            stand_button.config(state=DISABLED)
+            save_result("Поражение")  # запись результата только тут при переборе
 
     def stand():
         nonlocal balance
@@ -93,23 +107,46 @@ def game():
             win = stake * 2
             balance += win
             result_label.config(text=f"Вы выиграли! +{win} €", fg="green")
+            save_result("Победа")
         elif p == d:
             balance += stake
             result_label.config(text="Ничья (ставка возвращена)", fg="blue")
+            save_result("Ничья")
         else:
             result_label.config(text="Вы проиграли!", fg="red")
-        update_balance_display()
+            save_result("Поражение")
 
-    # Интерфейсные элементы (на фоне)
+        update_balance_display()
+        update_status()
+        hit_button.config(state=DISABLED)
+        stand_button.config(state=DISABLED)
+
+    def show_history():
+        try:
+            with open("Project//tulemused_2.txt", "r", encoding="utf-8") as f:
+                history = f.read()
+            messagebox.showinfo("История игр", history if history else "Пока что нет результатов.")
+        except FileNotFoundError:
+            messagebox.showwarning("Нет данных", "Файл с результатами не найден.")
+
+    def exit_program():
+        game.destroy()
+        LogiSisse.destroy()
+        sys.exit()
+
     stake_label = Label(game, text="Ставка:", bg="white", font=("Arial", 25))
     stake_entry = Entry(game, textvariable=stake_var, font=("Arial", 25), width=10)
     balance_label = Label(game, textvariable=balance_var, bg="white", font=("Arial", 12))
     play_button = Button(game, text="Играть", font=("Arial", 14), command=start_game)
-    hit_button = Button(game, text="Ещё", font=("Arial", 14), command=hit)
-    stand_button = Button(game, text="Хватит", font=("Arial", 14), command=stand)
-    result_label = Label(game, font=("Arial", 14), bg="white")
+    hit_button = Button(game, text="Ещё", font=("Arial", 14), command=hit, state=DISABLED)
+    stand_button = Button(game, text="Хватит", font=("Arial", 14), command=stand, state=DISABLED)
+    history_button = Button(game, text="Посмотреть историю", font=("Arial", 12), command=show_history)
+    exit_button = Button(game, text="Выйти", font=("Arial", 12), command=exit_program)
 
-    # Расположение элементов
+    result_label = Label(game, font=("Arial", 14), bg="white")
+    cards_label = Label(game, font=("Arial", 14), bg="white")
+    dealer_label = Label(game, font=("Arial", 14), bg="white")
+
     stake_label.place(x=100, y=105)
     stake_entry.place(x=250, y=105)
     balance_label.place(x=592, y=0)
@@ -117,11 +154,16 @@ def game():
     hit_button.place(x=150, y=150)
     stand_button.place(x=250, y=150)
     result_label.place(x=50, y=200)
+    cards_label.place(x=50, y=240)
+    dealer_label.place(x=50, y=270)
+    history_button.place(x=50, y=310)
+    exit_button.place(x=220, y=310)
 
 # ----------------------------- Вход и регистрация -----------------------------
 
 def tuhista(event):
     sisestus.delete(0, END)
+
 
 def SignInn():
     username = sisestus.get().strip()
@@ -140,7 +182,7 @@ def SignInn():
             f.write(f"username:{username}\n")
 
         messagebox.showinfo("Ок", "Регистрация прошла успешно")
-        game()
+        game(username)
     except:
         messagebox.showerror("Ошибка", "Не удалось сохранить пользователя")
 
@@ -155,7 +197,7 @@ def LogInn():
             users = [line.strip().replace("username:", "") for line in f]
         if nimi in users:
             messagebox.showinfo("Добро пожаловать", f"{nimi} вошёл")
-            game()
+            game(nimi)
         else:
             messagebox.showerror("Ошибка", "Такой пользователь не найден")
     except FileNotFoundError:
@@ -180,8 +222,12 @@ LogiSissee = Label(LogiSisse, text="Palun logige sisse!",  font=("Times New Roma
 OrlenkoCasino = Label(LogiSisse, text="OrlenkoCasino",  font=("Times New Roman", 25), fg="black", width=20)
 
 sisestus = Entry(LogiSisse, bg="lightblue", font=("Arial", 15), fg="black", width=33)    
-sisestus.insert(0, "Näiteks: Uuser123")
+sisestus.insert(0, "Enter your name:")
 sisestus.bind("<Button-1>", tuhista)
+
+sisestus2 = Entry(LogiSisse, bg="lightblue", font=("Arial", 15), fg="black", width=33)    
+sisestus2.insert(0, "Enter your e-mail")
+sisestus2.bind("<Button-1>", tuhista)
 
 LogIn = Button(LogiSisse, text="LogIn", bg="gray", font=("Times New Roman", 20), fg="black", command=LogInn)
 SignInButton = Button(LogiSisse, text="SignIn", bg="gray", font=("Times New Roman", 20), fg="black", command=SignInn)
@@ -189,7 +235,8 @@ SignInButton = Button(LogiSisse, text="SignIn", bg="gray", font=("Times New Roma
 LogiSissee.place(x=350, y=150, anchor="center")
 OrlenkoCasino.place(x=350, y=50, anchor="center")
 sisestus.place(x=168, y=200)
-LogIn.place(x=220, y=250)
-SignInButton.place(x=370, y=250)
+LogIn.place(x=220, y=300)
+SignInButton.place(x=370, y=300)
+sisestus2.place(x=168, y=260)
 
 LogiSisse.mainloop()

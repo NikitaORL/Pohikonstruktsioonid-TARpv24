@@ -60,6 +60,7 @@
     <Content Include="clash3.png" />
     <Content Include="kazino-s.jpg" />
     <Content Include="Project\clash.png" />
+    <Content Include="Project\tulemused_2.txt" />
     <Content Include="Project\usernames2.txt" />
     <Content Include="Teema7\andmed.json" />
     <Content Include="Teema7\klass.json" />
