@@ -1,3 +1,3 @@
-username:Näiteks: Uuser123
-username:1
-username:123
+username:f
+username:Enter your name:
+username:nikita

@@ -3,6 +3,8 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 import random
 import sys
+import smtplib, ssl
+from email.message import EmailMessage
 
 def game(username):
     game = Toplevel(LogiSisse)
@@ -54,7 +56,7 @@ def game(username):
             f.write(f"{username} - {result} Очки: {score}\n")
 
     def start_game():
-        nonlocal balance
+        global balance
         try:
             stake = int(stake_var.get())
         except ValueError:
@@ -142,6 +144,7 @@ def game(username):
     stand_button = Button(game, text="Хватит", font=("Arial", 14), command=stand, state=DISABLED)
     history_button = Button(game, text="Посмотреть историю", font=("Arial", 12), command=show_history)
     exit_button = Button(game, text="Выйти", font=("Arial", 12), command=exit_program)
+    donate_button = Button(game, text="Пополнить баланс", font=("Arial", 12), command=donate)
 
     result_label = Label(game, font=("Arial", 14), bg="white")
     cards_label = Label(game, font=("Arial", 14), bg="white")
@@ -158,11 +161,14 @@ def game(username):
     dealer_label.place(x=50, y=270)
     history_button.place(x=50, y=310)
     exit_button.place(x=220, y=310)
-
+    donate_button.place(x=535, y=500)
 # ----------------------------- Вход и регистрация -----------------------------
 
-def tuhista(event):
+def chistka_nimi(event):
     sisestus.delete(0, END)
+
+def chistka_email(event):
+    sisestus2.delete(0, END)
 
 
 def SignInn():
@@ -203,6 +209,101 @@ def LogInn():
     except FileNotFoundError:
         messagebox.showerror("Ошибка", "Файл пользователей не найден")
 
+def donate():
+    change_button_text
+    saada_kiri_babki()
+
+def change_button_text(button):
+    donate_button.config(text="Проверьте вашу почту!")
+
+
+def saada_kiri_babki():
+    kellele = sisestus2.get()  # Почта получателя
+    teema = sisestus.get()    # Тема письма
+
+    # HTML контент
+    sisu = f'''<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация завершена</title>
+</head>
+<body>
+    <h1>Здарствуйте {teema}!</h1>
+    <p>С вашего аккаунта поступил запрос об пополнении баланса в OrlenkoCasino.</p>
+    <p>Перейдите по ссылке, чтобы узнать подтвердить и совершить операцию, хорошего дня и приятных игр! Ваше OrlenkoCasino:</p>
+    <a href="https://www.ORLcasinoDonate.ee/">Посетить сайт</a>
+</body>
+</html>'''
+
+    smtp_server = "smtp.gmail.com"
+    smtp_port = 587
+    kellelt = "nikita.orlenko234@gmail.com"  # От кого письмо
+    salasõna = "latj hoqj lvkq oipm"  # Замените на свой пароль для приложения
+
+    msg = EmailMessage()
+    msg['Subject'] = teema
+    msg['From'] = kellelt
+    msg['To'] = kellele
+
+    msg.set_content(sisu, subtype='html')
+
+    # Отправка письма без файла для отладки
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls(context=ssl.create_default_context())  # Шифрованное соединение
+            server.login(kellelt, salasõna)  # Вход в аккаунт
+            server.send_message(msg)  # Отправка сообщения
+            print("Kiri saadetud edukalt!")  # Уведомление о успешной отправке
+    except Exception as e:
+        print(f"Ошибка при отправке письма: {e}")  # Вывод ошибки при неудаче
+
+#------------------------------------------------------------------------------------------
+def saada_kiri_registratsija():
+    kellele = sisestus2.get()  # Почта получателя
+    teema = sisestus.get()    # Тема письма
+
+    # HTML контент
+    sisu = f'''<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация завершена</title>
+</head>
+<body>
+    <h1>Спасибо за регистрацию, {teema}!</h1>
+    <p>Мы рады приветствовать вас в OrlenkoCasino.</p>
+    <p>Перейдите по ссылке, чтобы узнать больше:</p>
+    <a href="https://www.ORLcasinoINFO.ee/">Посетить сайт</a>
+</body>
+</html>'''
+
+    smtp_server = "smtp.gmail.com"
+    smtp_port = 587
+    kellelt = "nikita.orlenko234@gmail.com"  # От кого письмо
+    salasõna = "latj hoqj lvkq oipm"  # Замените на свой пароль для приложения
+
+    msg = EmailMessage()
+    msg['Subject'] = teema
+    msg['From'] = kellelt
+    msg['To'] = kellele
+
+    msg.set_content(sisu, subtype='html')
+
+    # Отправка письма без файла для отладки
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls(context=ssl.create_default_context())  # Шифрованное соединение
+            server.login(kellelt, salasõna)  # Вход в аккаунт
+            server.send_message(msg)  # Отправка сообщения
+            print("Kiri saadetud edukalt!")  # Уведомление о успешной отправке
+    except Exception as e:
+        print(f"Ошибка при отправке письма: {e}")  # Вывод ошибки при неудаче
+
+def dve_fuktsii():
+    SignInn()
+    saada_kiri_registratsija()
+
 # ----------------------------- Главное окно -----------------------------
 
 LogiSisse = Tk()                      
@@ -223,14 +324,14 @@ OrlenkoCasino = Label(LogiSisse, text="OrlenkoCasino",  font=("Times New Roman",
 
 sisestus = Entry(LogiSisse, bg="lightblue", font=("Arial", 15), fg="black", width=33)    
 sisestus.insert(0, "Enter your name:")
-sisestus.bind("<Button-1>", tuhista)
+sisestus.bind("<Button-1>", chistka_nimi)
 
 sisestus2 = Entry(LogiSisse, bg="lightblue", font=("Arial", 15), fg="black", width=33)    
 sisestus2.insert(0, "Enter your e-mail")
-sisestus2.bind("<Button-1>", tuhista)
+sisestus2.bind("<Button-1>", chistka_email)
 
 LogIn = Button(LogiSisse, text="LogIn", bg="gray", font=("Times New Roman", 20), fg="black", command=LogInn)
-SignInButton = Button(LogiSisse, text="SignIn", bg="gray", font=("Times New Roman", 20), fg="black", command=SignInn)
+SignInButton = Button(LogiSisse, text="SignIn", bg="gray", font=("Times New Roman", 20), fg="black", command=dve_fuktsii)
 
 LogiSissee.place(x=350, y=150, anchor="center")
 OrlenkoCasino.place(x=350, y=50, anchor="center")
