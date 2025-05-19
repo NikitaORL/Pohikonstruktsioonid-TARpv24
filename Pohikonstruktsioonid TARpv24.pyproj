@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="8_4_Eposti.py" />
+    <Compile Include="Fotoroobot - Copy.py" />
     <Compile Include="Project\PROJECT.py" />
     <Compile Include="Teema7\Ulesanne7_3\MyModule_küsimustik.py" />
     <Compile Include="Teema8\Diagrammide.py" />

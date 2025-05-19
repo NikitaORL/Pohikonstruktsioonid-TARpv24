@@ -5,7 +5,7 @@ import random
 import sys
 import smtplib, ssl
 from email.message import EmailMessage
-
+#второе окно игры
 def game(username):
     game = Toplevel(LogiSisse)
     game.title("GAME")       
@@ -56,7 +56,7 @@ def game(username):
             f.write(f"{username} - {result} Очки: {score}\n")
 
     def start_game():
-        global balance
+        nonlocal balance
         try:
             stake = int(stake_var.get())
         except ValueError:
@@ -304,7 +304,7 @@ def dve_fuktsii():
     SignInn()
     saada_kiri_registratsija()
 
-# ----------------------------- Главное окно -----------------------------
+#Главное окно ----------------------------------------------------------------------
 
 LogiSisse = Tk()                      
 LogiSisse.title("Sign in")       
