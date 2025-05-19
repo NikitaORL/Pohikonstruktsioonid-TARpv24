@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Project\PROJECT.py</StartupFile>
+    <StartupFile>Roobot\Roboot.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,6 +24,7 @@
     <Compile Include="8_4_Eposti.py" />
     <Compile Include="Fotoroobot - Copy.py" />
     <Compile Include="Project\PROJECT.py" />
+    <Compile Include="Roobot\Roboot.py" />
     <Compile Include="Teema7\Ulesanne7_3\MyModule_küsimustik.py" />
     <Compile Include="Teema8\Diagrammide.py" />
     <Compile Include="Teema7\Ulesanne7_3\Küsimustik_7_3.py" />
@@ -74,6 +75,7 @@
     <Content Include="Teema8\meme.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Roobot\" />
     <Folder Include="Project\" />
     <Folder Include="Teema8\" />
     <Folder Include="Teema7\Ulesanne7_3\" />
