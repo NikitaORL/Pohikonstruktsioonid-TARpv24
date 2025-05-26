@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Roobot\Roboot.py</StartupFile>
+    <StartupFile>teema9.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -47,6 +47,7 @@
     <Compile Include="Teema8\Teema_8_1.py" />
     <Compile Include="Teema8\Teema_8_TK.py" />
     <Compile Include="Teema8\Teema8_3.py" />
+    <Compile Include="teema9.py" />
     <Compile Include="tund_def.py" />
     <Compile Include="VigadeOtsing.py" />
     <Compile Include="блоксхемы.py" />
