@@ -1,13 +1,16 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-import sqlite3
+import sqlite3  #позволяет работать с базой данных
+ 
 
-DB_NAME = 'movies4.db'
+database = 'movies4.db' 
 
+# создание таблиц
 def create_tables():
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(database)  #соединение с базой 
     cursor = conn.cursor()
-    cursor.executescript("""
+    #для выполнения несколких таблиц чтобы создать
+    cursor.executescript("""                        
     CREATE TABLE IF NOT EXISTS languages (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT UNIQUE NOT NULL
@@ -29,7 +32,7 @@ def create_tables():
     );
 
     CREATE TABLE IF NOT EXISTS movies (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT, 
       title TEXT NOT NULL,
       director_id INTEGER,
       release_year INTEGER,
@@ -48,41 +51,35 @@ def create_tables():
     conn.commit()
     conn.close()
 
-def get_all(table):
-    conn = sqlite3.connect(DB_NAME)
+#все табл
+def all_tables(table):
+    conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.execute(f"SELECT id, name FROM {table} ORDER BY name")
     rows = cursor.fetchall()
     conn.close()
     return rows
-
-def add_value_to_table(table, name):
-    conn = sqlite3.connect(DB_NAME)
+#добавление
+def add(table, name):
+    conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.execute(f"INSERT OR IGNORE INTO {table} (name) VALUES (?)", (name,))
     conn.commit()
     conn.close()
 
-def get_name_by_id(table, id_):
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    cursor.execute(f"SELECT name FROM {table} WHERE id=?", (id_,))
-    row = cursor.fetchone()
-    conn.close()
-    return row[0] if row else ""
-
+#короче нужна чтобы хранить ID
 def get_id_by_name(table, name):
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.execute(f"SELECT id FROM {table} WHERE name=?", (name,))
     row = cursor.fetchone()
     conn.close()
-    return row[0] if row else None
+    return row[0] if row else None #Если row существует то вернется ид
 
-def load_movies(search=None):
+def load_movies(search):
     for item in tree.get_children():
         tree.delete(item)
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(database)
     cursor = conn.cursor()
 
     query = """
@@ -121,16 +118,16 @@ def add_edit_movie(movie=None):
     widgets = {}
 
     # Загрузка всех значений для выпадающих списков
-    directors = [x[1] for x in get_all("directors")]
-    genres = [x[1] for x in get_all("genres")]
-    languages = [x[1] for x in get_all("languages")]
-    countries = [x[1] for x in get_all("countries")]
+    directors = [x[1] for x in all_tables("directors")]
+    genres = [x[1] for x in all_tables("genres")]
+    languages = [x[1] for x in all_tables("languages")]
+    countries = [x[1] for x in all_tables("countries")]
 
     def open_add_window(table, refresh_func):
         def save_new():
             val = entry.get().strip()
             if val:
-                add_value_to_table(table, val)
+                add(table, val)
                 refresh_func()
                 add_win.destroy()
 
@@ -142,7 +139,7 @@ def add_edit_movie(movie=None):
         tk.Button(add_win, text="Salvesta", command=save_new).pack(pady=10)
 
     def refresh_combobox(combo, table):
-        vals = [x[1] for x in get_all(table)]
+        vals = [x[1] for x in all_tables(table)]
         combo['values'] = vals
 
     for i, label in enumerate(labels):
@@ -227,7 +224,7 @@ def add_edit_movie(movie=None):
             messagebox.showerror("Viga", "Reiting peab olema arv")
             return
 
-        conn = sqlite3.connect(DB_NAME)
+        conn = sqlite3.connect(database)
         cursor = conn.cursor()
         if movie:
             cursor.execute("""
@@ -253,7 +250,7 @@ def delete_selected_movie():
         return
     movie_id = tree.item(sel[0])['values'][0]
     if messagebox.askyesno("Kustuta?", "Kas oled kindel?"):
-        conn = sqlite3.connect(DB_NAME)
+        conn = sqlite3.connect(database)
         cursor = conn.cursor()
         cursor.execute("DELETE FROM movies WHERE id=?", (movie_id,))
         conn.commit()
