@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox
 import sqlite3  #позволяет работать с базой данных
  
 
-database = 'movies4.db' 
+database = 'movies5.db' 
 
 # создание таблиц
 def create_tables():
@@ -76,7 +76,7 @@ def get_id_by_name(table, name):
     conn.close()
     return row[0] if row else None #Если row существует то вернется ид
 
-def load_movies(search):
+def load_movies(search=None):
     for item in tree.get_children():
         tree.delete(item)
     conn = sqlite3.connect(database)
@@ -176,6 +176,8 @@ def add_edit_movie(movie=None):
             ent = tk.Entry(form)
             ent.grid(row=i, column=1, sticky='we', padx=5, pady=5)
             widgets[label] = ent
+
+
 
     # Заполнение формы если редактирование
     if movie:
