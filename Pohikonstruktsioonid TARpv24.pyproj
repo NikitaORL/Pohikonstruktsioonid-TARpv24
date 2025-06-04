@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>teema9.py</StartupFile>
+    <StartupFile>Roobot\Roboot.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="8_4_Eposti.py" />
+    <Compile Include="Fotoroobot.py" />
     <Compile Include="Project\PROJECT.py" />
     <Compile Include="Roobot\Roboot.py" />
     <Compile Include="Teema7\Ulesanne7_3\MyModule_küsimustik.py" />
@@ -61,9 +62,26 @@
     <Content Include="clash2.jpg" />
     <Content Include="clash3.png" />
     <Content Include="kazino-s.jpg" />
+    <Content Include="Roobot\BROVI2.png" />
     <Content Include="Project\clash.png" />
     <Content Include="Project\tulemused_2.txt" />
     <Content Include="Project\usernames2.txt" />
+    <Content Include="Roobot\BROVI1.png" />
+    <Content Include="Roobot\BROVI3.png" />
+    <Content Include="Roobot\BROVI4.png" />
+    <Content Include="Roobot\conor.jpg" />
+    <Content Include="Roobot\NOS1.png" />
+    <Content Include="Roobot\NOS2.png" />
+    <Content Include="Roobot\NOS3.png" />
+    <Content Include="Roobot\NOS4.png" />
+    <Content Include="Roobot\ROT1.png" />
+    <Content Include="Roobot\ROT2.png" />
+    <Content Include="Roobot\ROT3.png" />
+    <Content Include="Roobot\ROT4.png" />
+    <Content Include="Roobot\YSHI.png" />
+    <Content Include="Roobot\YSHI2.png" />
+    <Content Include="Roobot\YSHI3.png" />
+    <Content Include="Roobot\YSHI4.png" />
     <Content Include="Teema7\andmed.json" />
     <Content Include="Teema7\klass.json" />
     <Content Include="OIP.jpg" />
