@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fbe747ec-5346-4de8-9377-054f35d65eb1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Roobot\Roboot.py</StartupFile>
+    <StartupFile>OOP.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="8_4_Eposti.py" />
     <Compile Include="Fotoroobot.py" />
+    <Compile Include="OOP.py" />
     <Compile Include="Project\PROJECT.py" />
     <Compile Include="Roobot\Roboot.py" />
     <Compile Include="Teema7\Ulesanne7_3\MyModule_küsimustik.py" />
